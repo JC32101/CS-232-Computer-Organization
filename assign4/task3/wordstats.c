@@ -21,12 +21,7 @@ int main () {
   // while(fgets(buf, MAX_BUF, stdin) != NULL){
   //   len += strlen(buf) - 1;
   // }
-
-  // for(i = 0; i < MAX_BUF; i++){
-  //     fgets(buf[i], MAX_BUF, stdin);
-  // }
-
-
+  
   // while(fgets(buf, MAX_BUF, stdin) != NULL){
   //   len += strlen(buf) - 1;
   //   // if(buf[len] == NULL){
@@ -34,22 +29,6 @@ int main () {
   //   // }
   // }
 
-
-  while((x=getchar()) != EOF){
-    buf[len] = x;
-    len++;
-  }
-
-  /*----------------------------------------------------------------*/
-  /*----------------------------------------------------------------*/
-  /*----------------------------------------------------------------*/
-
-  // printf("length of buf: %i\n", len);
-
-  // printf("Buf Array: \n");
-  // for(i = 0; i < len; i++){
-  //   printf("%c", buf[i]);
-  // }
 
   for (i = 0; i < len; i++){
     if(buf[i] >= 'a' && buf[i] <= 'z'){
