@@ -41,7 +41,11 @@ int dump_all(node_t * x) {
     printf("%d -> %d\n", x->value, y->value);
     node_t * z = y->next;
     printf("%d -> %d\n", y->value, z->value);
+<<<<<<< HEAD
     if(z->next != x) {  
+=======
+    if(z->next != x) {      
+>>>>>>> 63de05b7101aff27a0b8ec97337e13ee9f3e89df
       free(x);
       free(y);
       free(z);
