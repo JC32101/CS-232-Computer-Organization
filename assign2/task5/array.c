@@ -1,4 +1,4 @@
-/* Copyright (c) 2020, Dive into Systems, LLC (https://diveintosystems.org/)
+/*/* Copyright (c) 2020, Dive into Systems, LLC (https://diveintosystems.org/)
  */
 
 #include <stdio.h>
@@ -34,4 +34,15 @@ void printArray(int a[], int size) {
  */
 void bubbleSort(int a[], int size) {
     //TODO: write this function
+    int i, j, temp;
+    for (i = 0; i < size-1; i++){
+      for(j = 0; j < size-i-1; j++){
+        if(a[j] > a[j+1])
+        {
+          temp = a[j];
+          a[j] = a[j+1];
+          a[j+1] = temp;
+        }
+      }
+    }
 }

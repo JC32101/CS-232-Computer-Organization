@@ -5,7 +5,7 @@ int main(int argc, char * argv[]){
 
   int i, *a;
 
-  a = malloc(sizeof(int)*10);
+  a = malloc(sizeof(int)*11);
 
   for(i=0;i <= 10; i++){
     a[i] = i;
@@ -14,4 +14,5 @@ int main(int argc, char * argv[]){
     printf("%d\n", a[i]);
   }
 
+  free(a);
 }

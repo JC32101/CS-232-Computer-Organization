@@ -8,20 +8,27 @@ typedef struct node {
 node_t * construct_3() {
     //Allocate three pointers: 
     //x for the first Node, and temporary pointers y and z for the other two Nodes.
-
     //Allocate three Node pointees and store references to them in the three pointers.
-
     //Dereference each pointer to store the appropriate number into the value field in its pointee.
-
     //Dereference each pointer to access the .next field in its pointee, 
     //and use pointer assignment to set the .next field to point to the appropriate Node. 
 
+    /*why does size of 3 work and not 1-4 or 4-1*/
+    node_t *x;
+    x = (node_t *)malloc(sizeof(node_t *)*3);
+    x->value = 1;
+    x->next = (node_t *)malloc(sizeof(node_t *)*3);
+    x->next->value = 2;
+    x->next->next = (node_t *)malloc(sizeof(node_t *)*3);
+    x->next->next->value = 3;
+    x->next->next->next = (node_t *)malloc(sizeof(node_t *)*3);
+    x->next->next->next = x;
+    return x;
 }
 
 //You can ignore the following code for testing
 int dump_all(node_t*);
 int main (int argc, char ** argv) {
-
     node_t * x = construct_3();
     return dump_all(x);
 
@@ -33,11 +40,16 @@ int dump_all(node_t * x) {
     printf("%d -> %d\n", x->value, y->value);
     node_t * z = y->next;
     printf("%d -> %d\n", y->value, z->value);
+    free(y);
     if(z->next != x) {
+      free(z);
+      free(x);
     	printf("failed");
-	return -1;
+	    return -1;
     } else {
         printf("%d -> %d\n", z->value, x->value);
+        free(z);
+        free(x);
         return 0;
     }
 }
