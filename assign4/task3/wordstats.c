@@ -21,14 +21,13 @@ int main () {
   // while(fgets(buf, MAX_BUF, stdin) != NULL){
   //   len += strlen(buf) - 1;
   // }
-  
+
   // while(fgets(buf, MAX_BUF, stdin) != NULL){
   //   len += strlen(buf) - 1;
   //   // if(buf[len] == NULL){
   //   //   buf[len] == fgets(buf, MAX_BUF, stdin);
   //   // }
   // }
-
 
   for (i = 0; i < len; i++){
     if(buf[i] >= 'a' && buf[i] <= 'z'){
