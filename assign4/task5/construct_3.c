@@ -28,6 +28,7 @@ node_t * construct_3() {
 
 //You can ignore the following code for testing
 int dump_all(node_t*);
+
 int main (int argc, char ** argv) {
     node_t * x = construct_3();
     return dump_all(x);
@@ -40,16 +41,17 @@ int dump_all(node_t * x) {
     printf("%d -> %d\n", x->value, y->value);
     node_t * z = y->next;
     printf("%d -> %d\n", y->value, z->value);
-    free(y);
-    if(z->next != x) {
-      free(z);
+    if(z->next != x) {      
       free(x);
+      free(y);
+      free(z);
     	printf("failed");
 	    return -1;
     } else {
         printf("%d -> %d\n", z->value, x->value);
-        free(z);
         free(x);
+        free(y);
+        free(z);
         return 0;
     }
 }

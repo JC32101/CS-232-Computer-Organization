@@ -20,18 +20,26 @@ int main () {
   //   }
   // }while(len > 1);
 
+  // for(i = 0; i < MAX_BUF; i++){
+  //     fgets(buf[i], MAX_BUF, stdin);
+  // }
 
-  while(fgets(buf, MAX_BUF, stdin) != NULL){
-    len += strlen(buf) - 1;
-    if(buf[len] == NULL){
-      buf[len] == fgets(buf, MAX_BUF, stdin);
-    }
+
+  // while(fgets(buf, MAX_BUF, stdin) != NULL){
+  //   len += strlen(buf) - 1;
+  //   // if(buf[len] == NULL){
+  //   //   buf[len] == fgets(buf, MAX_BUF, stdin);
+  //   // }
+  // }
+
+  while((x=getchar()) != EOF){
+    buf[len] = x;
+    len++;
   }
 
-  // while((x=getchar()) != EOF){
-  //   buf[len] = x;
-  //   len++;
-  // }
+  /*----------------------------------------------------------------*/
+  /*----------------------------------------------------------------*/
+  /*----------------------------------------------------------------*/
 
   // printf("length of buf: %i\n", len);
 
