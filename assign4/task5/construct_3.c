@@ -13,25 +13,26 @@ node_t * construct_3() {
     //Dereference each pointer to access the .next field in its pointee, 
     //and use pointer assignment to set the .next field to point to the appropriate Node. 
 
-    /*why does size of 3 work and not 1-4 or 4-1*/
-    node_t *x;
-    x = (node_t *)malloc(sizeof(node_t *)*3);
+    node_t *x, *y, *z;
+    x = (node_t *)malloc(sizeof(node_t *)*2);
+    y = (node_t *)malloc(sizeof(node_t *)*2);
+    z = (node_t *)malloc(sizeof(node_t *)*2);
     x->value = 1;
-    x->next = (node_t *)malloc(sizeof(node_t *)*3);
-    x->next->value = 2;
-    x->next->next = (node_t *)malloc(sizeof(node_t *)*3);
-    x->next->next->value = 3;
-    x->next->next->next = (node_t *)malloc(sizeof(node_t *)*3);
-    x->next->next->next = x;
+    y->value = 2;
+    z->value = 3;
+    x->next = y;
+    y->next = z;
+    z->next = x;
+
     return x;
 }
 
 //You can ignore the following code for testing
 int dump_all(node_t*);
+
 int main (int argc, char ** argv) {
     node_t * x = construct_3();
     return dump_all(x);
-
 }
 
 int dump_all(node_t * x) {
@@ -40,16 +41,17 @@ int dump_all(node_t * x) {
     printf("%d -> %d\n", x->value, y->value);
     node_t * z = y->next;
     printf("%d -> %d\n", y->value, z->value);
-    free(y);
-    if(z->next != x) {
-      free(z);
+    if(z->next != x) {  
       free(x);
+      free(y);
+      free(z);
     	printf("failed");
 	    return -1;
     } else {
         printf("%d -> %d\n", z->value, x->value);
-        free(z);
         free(x);
+        free(y);
+        free(z);
         return 0;
     }
 }

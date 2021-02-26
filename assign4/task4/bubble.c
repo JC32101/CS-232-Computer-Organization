@@ -22,11 +22,19 @@ int main()
 	 be LEN bytes long.  
 	 Note that the newline and NULL characters will be included in LEN.
   */
+  int i;
+
+  for(i = 0; i < NUM; i++){
+      fgets(Strings[i], LEN-2, stdin);
+  }
 
   puts("\nHere are the strings in the order you entered:");
 
   /* Write a for loop here to print all the strings. */
 
+  for(i = 0; i <= NUM; i++){
+    printf("%s\n", Strings[i]);
+  }
   
   /* Bubble sort */
   /* Write code here to bubble sort the strings in ascending alphabetical order
@@ -40,11 +48,43 @@ int main()
 	    functions in swap.
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
+
+  
+  int mystrcmp(char * a, char * b){
+      while(*a != '\0' && *b != '\0'){
+        if(a == b){
+          a++, b++;
+        }
+        else return 1;
+      }
+      return 0;
+  }
+
+  void swap(char* c, char* d){
+    char *temp = c;
+    c = d;
+    d = temp;
+  }
+
+  int j;
+  int k;
+
+  for(j = 1; j < NUM; j++){
+    for(k = 0; k < j; k++){
+      if(mystrcmp(Strings[k], Strings[k+1])>0){
+        swap(Strings[k], Strings[k+1]);
+      }
+    }
+  }
+
   /* Output sorted list */
   
   puts("\nIn alphabetical order, the strings are:");     
   /* Write a for loop here to print all the strings. Feel free to use puts/printf
      etc. for printing each string.
   */
-
+  int l;
+  for(l = 0; l <= NUM; l++){
+    printf("%s\n", Strings[l]);
+  }
 }
