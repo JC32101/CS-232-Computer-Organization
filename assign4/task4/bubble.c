@@ -14,7 +14,7 @@ int main()
   printf("Please enter %d strings, one per line:\n", NUM);
 
   /* Write a for loop here to read NUM strings.
-
+  
   Use fgets(), with LEN as an argument to ensure that an input line that is too
   long does not exceed the bounds imposed by the string's length. However, each 
 	string stored in array Strings must not waste space. That is, only the buffer
