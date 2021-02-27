@@ -40,15 +40,13 @@ int main()
 	be LEN bytes long.  
 	Note that the newline and NULL characters will be included in LEN.
   */
-  int i, m;
+  int i;
 
   char s [NUM];
 
   for(i = 0; i < NUM; i++){
       fgets(s, LEN-2, stdin);
-      for(m = 0; m < strlen(s); m++){
-        Strings[m] = &s[m];
-      }
+      Strings[i] = &s[i];
   }
 
   puts("\nHere are the strings in the order you entered:");
@@ -66,9 +64,7 @@ int main()
       (i) The comparison of two strings must be done by checking them one
           character at a time, without using any C string library functions.
           That is, write your own while/for loop to do this.
-      (ii)  Implement a swap function to swap two strings by swapping pointers
-	          without copying any chars.You are not allowed to use any C library 
-	          functions in swap.
+      (ii)  Implement a swap function to swap two strings by swapping pointers without copying any chars. You are not allowed to use any C library functions in swap.
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
 
