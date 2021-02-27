@@ -9,13 +9,9 @@ int main () {
   int len, i, x;
   char buf[MAX_BUF];
 
-  len = 0;
-
-  //failed input 2 ---- only reads the first line ----- how can i read the second line?
-
   do{
     fgets(buf, MAX_BUF, stdin);
-    len += strlen(buf);
+    len = strlen(buf);
     for (i = 0; i <= len; i++){
       if(buf[i] >= 'a' && buf[i] <= 'z'){
         x = buf[i] - 'a';

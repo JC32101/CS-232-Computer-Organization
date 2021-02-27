@@ -7,6 +7,24 @@
 #define NUM 30   /* number of strings */
 #define LEN 1200  /* max length of each string */
 
+int mystrcmp(char * a, char * b){
+  while(*a != '\0' && *b != '\0'){
+    if(a == b){
+      a++, b++;
+    }
+    else{
+      return 1;
+    }
+  }
+  return 0;
+}
+
+void swap(char* c, char* d){
+  char *temp = c;
+  c = d;
+  d = temp;
+}
+
 int main()
 {
   char * Strings[NUM];
@@ -22,15 +40,15 @@ int main()
 	be LEN bytes long.  
 	Note that the newline and NULL characters will be included in LEN.
   */
-  int i;
-  i = 0;
+  int i, m;
 
-  // for(i = 0; i < NUM; i++){
-  //     fgets(Strings[i], LEN-2, stdin);
-  // }
+  char s [NUM];
 
-  while(fgets(Strings[i], LEN, stdn)){
-
+  for(i = 0; i < NUM; i++){
+      fgets(s, LEN-2, stdin);
+      for(m = 0; m < strlen(s); m++){
+        Strings[m] = &s[m];
+      }
   }
 
   puts("\nHere are the strings in the order you entered:");
@@ -53,23 +71,6 @@ int main()
 	          functions in swap.
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
-
-  
-  int mystrcmp(char * a, char * b){
-      while(*a != '\0' && *b != '\0'){
-        if(a == b){
-          a++, b++;
-        }
-        else return 1;
-      }
-      return 0;
-  }
-
-  void swap(char* c, char* d){
-    char *temp = c;
-    c = d;
-    d = temp;
-  }
 
   int j;
   int k;
