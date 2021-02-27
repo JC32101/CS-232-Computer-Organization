@@ -15,17 +15,21 @@ int main()
 
   /* Write a for loop here to read NUM strings.
 
-     Use fgets(), with LEN as an argument to ensure that an input line that is too
-     long does not exceed the bounds imposed by the string's length. However, each 
-	 string stored in array Strings must not waste space. That is, only the buffer
-	 used by fgets() to temporary store the string read from input stream needs to 
-	 be LEN bytes long.  
-	 Note that the newline and NULL characters will be included in LEN.
+  Use fgets(), with LEN as an argument to ensure that an input line that is too
+  long does not exceed the bounds imposed by the string's length. However, each 
+	string stored in array Strings must not waste space. That is, only the buffer
+	used by fgets() to temporary store the string read from input stream needs to 
+	be LEN bytes long.  
+	Note that the newline and NULL characters will be included in LEN.
   */
   int i;
 
-  for(i = 0; i < NUM; i++){
-      fgets(Strings[i], LEN-2, stdin);
+  // for(i = 0; i < NUM; i++){
+  //     fgets(Strings[i], LEN-2, stdin);
+  // }
+
+  while(fgets(Strings, LEN, stdin) != NULL){
+    int length = strlen(Strings);
   }
 
   puts("\nHere are the strings in the order you entered:");
@@ -40,12 +44,12 @@ int main()
   /* Write code here to bubble sort the strings in ascending alphabetical order
 
      Your code must meet the following requirements:
-        (i) The comparison of two strings must be done by checking them one
-            character at a time, without using any C string library functions.
-            That is, write your own while/for loop to do this.
-       (ii) Implement a swap function to swap two strings by swapping pointers
-	    without copying any chars.You are not allowed to use any C library 
-	    functions in swap.
+      (i) The comparison of two strings must be done by checking them one
+          character at a time, without using any C string library functions.
+          That is, write your own while/for loop to do this.
+      (ii)  Implement a swap function to swap two strings by swapping pointers
+	          without copying any chars.You are not allowed to use any C library 
+	          functions in swap.
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
 
