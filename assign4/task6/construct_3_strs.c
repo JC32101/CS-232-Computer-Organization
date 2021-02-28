@@ -6,18 +6,21 @@ typedef struct node {
 } node_t;
 
 node_t * construct_3_strs() {
-    //return NULL;//just to pass compiler, please edit as needed.
+  //return NULL;//just to pass compiler, please edit as needed.
     
   node_t *x, *y, *z;
   x = (node_t *)malloc(sizeof(node_t *)*3);
   y = (node_t *)malloc(sizeof(node_t *)*3);
   z = (node_t *)malloc(sizeof(node_t *)*3);
-  x->value = (char*)malloc(sizeof(char *)*5);
-  y->value = (char*)malloc(sizeof(char *)*5);
-  z->value = (char*)malloc(sizeof(char *)*5);
+  
+  // x->value = (char*)malloc(sizeof(char *)*5);
+  // y->value = (char*)malloc(sizeof(char *)*5);
+  // z->value = (char*)malloc(sizeof(char *)*5);
+
   x->value = "CS232";
   y->value = "is";
   z->value = "awesome";
+
   x->next = y;
   y->next = z;
   z->next = x;

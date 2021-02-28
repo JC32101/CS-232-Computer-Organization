@@ -2,6 +2,7 @@
 
 #include <stdio.h>  /* Need for standard I/O functions */
 #include <string.h> /* Need for strlen() */
+#include <stdlib.h>
 
 
 #define NUM 30   /* number of strings */
@@ -9,7 +10,7 @@
 
 int mystrcmp(char * a, char * b){
   while(*a != '\0' && *b != '\0'){
-    if(a == b){
+    if(*a == *b){
       a++, b++;
     }
     else{
@@ -19,10 +20,10 @@ int mystrcmp(char * a, char * b){
   return 0;
 }
 
-void swap(char* c, char* d){
-  char *temp = c;
-  c = d;
-  d = temp;
+void swap(char **c, char **d){
+  char *temp = *c;
+  *c = *d;
+  *d = temp;
 }
 
 int main()
@@ -42,21 +43,24 @@ int main()
   */
   int i, m;
 
-  char s [NUM];
+  char temp [LEN-2];
 
   for(i = 0; i < NUM; i++){
-      fgets(s, LEN-2, stdin);
-      for(m = 0; m < strlen(s); m++){
-        Strings[m] = &s[m];
+      fgets(temp, LEN-2, stdin);
+      char *s = (char*)malloc(sizeof(strlen(temp)+1));
+      for(m = 0; m < strlen(temp); m++){
+        *(s+m) = *(temp+m);
       }
+      *(s+(strlen(s)-1)) = '\0';
+      Strings[i] = s;
   }
 
   puts("\nHere are the strings in the order you entered:");
 
   /* Write a for loop here to print all the strings. */
 
-  for(i = 0; i <= NUM; i++){
-    printf("%s\n", Strings[i]);
+  for(i = 0; i < NUM; i++){
+    printf("%s\n", *(Strings+i));
   }
   
   /* Bubble sort */
@@ -66,9 +70,7 @@ int main()
       (i) The comparison of two strings must be done by checking them one
           character at a time, without using any C string library functions.
           That is, write your own while/for loop to do this.
-      (ii)  Implement a swap function to swap two strings by swapping pointers
-	          without copying any chars.You are not allowed to use any C library 
-	          functions in swap.
+      (ii)  Implement a swap function to swap two strings by swapping pointers without copying any chars. You are not allowed to use any C library functions in swap.
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
 
@@ -76,9 +78,9 @@ int main()
   int k;
 
   for(j = 1; j < NUM; j++){
-    for(k = 0; k < j; k++){
+    for(k = 0; k < NUM - j - 1; k++){
       if(mystrcmp(Strings[k], Strings[k+1])>0){
-        swap(Strings[k], Strings[k+1]);
+        swap(&Strings[k], &Strings[k+1]);
       }
     }
   }
@@ -90,7 +92,8 @@ int main()
      etc. for printing each string.
   */
   int l;
-  for(l = 0; l <= NUM; l++){
+  for(l = 0; l < NUM; l++){
     printf("%s\n", Strings[l]);
+    free(*(Strings+i));
   }
 }
