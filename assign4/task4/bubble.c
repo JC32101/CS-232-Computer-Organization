@@ -41,11 +41,12 @@ int main()
 	be LEN bytes long.  
 	Note that the newline and NULL characters will be included in LEN.
   */
-  int i, m;
+  int i;
 
   char temp [LEN-2];
 
   for(i = 0; i < NUM; i++){
+<<<<<<< HEAD
       fgets(temp, LEN-2, stdin);
       char *s = (char*)malloc(sizeof(strlen(temp)+1));
       for(m = 0; m < strlen(temp); m++){
@@ -53,6 +54,10 @@ int main()
       }
       *(s+(strlen(s)-1)) = '\0';
       Strings[i] = s;
+=======
+      fgets(s, LEN-2, stdin);
+      Strings[i] = &s[i];
+>>>>>>> 38df14360c33992a8cbdaeef3a099e850840a9d8
   }
 
   puts("\nHere are the strings in the order you entered:");
