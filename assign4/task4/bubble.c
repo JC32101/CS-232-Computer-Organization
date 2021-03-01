@@ -10,17 +10,18 @@
 
 int mystrcmp(char * a, char * b){
   while(*a != '\0' && *b != '\0'){
-    if(*a == *b){
+    if(a == b){
       a++, b++;
     }
-    else{
+    else if ((*a == '\0' && *b != '\0') || (*a != '\0' && *b == '\0') || *a != *b){
       return 1;
+      break;
     }
   }
   return 0;
 }
 
-void swap(char **c, char **d){
+void swap(char *c, char *d){
   char *temp = *c;
   *c = *d;
   *d = temp;
@@ -41,12 +42,12 @@ int main()
 	be LEN bytes long.  
 	Note that the newline and NULL characters will be included in LEN.
   */
-  int i;
+  int i, m;
 
+  
   char temp [LEN-2];
 
   for(i = 0; i < NUM; i++){
-<<<<<<< HEAD
       fgets(temp, LEN-2, stdin);
       char *s = (char*)malloc(sizeof(strlen(temp)+1));
       for(m = 0; m < strlen(temp); m++){
@@ -54,10 +55,6 @@ int main()
       }
       *(s+(strlen(s)-1)) = '\0';
       Strings[i] = s;
-=======
-      fgets(s, LEN-2, stdin);
-      Strings[i] = &s[i];
->>>>>>> 38df14360c33992a8cbdaeef3a099e850840a9d8
   }
 
   puts("\nHere are the strings in the order you entered:");
@@ -67,7 +64,6 @@ int main()
   for(i = 0; i < NUM; i++){
     printf("%s\n", *(Strings+i));
   }
-  
   /* Bubble sort */
   /* Write code here to bubble sort the strings in ascending alphabetical order
 
@@ -78,14 +74,21 @@ int main()
       (ii)  Implement a swap function to swap two strings by swapping pointers without copying any chars. You are not allowed to use any C library functions in swap.
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
-
+  
   int j;
   int k;
 
-  for(j = 1; j < NUM; j++){
-    for(k = 0; k < NUM - j - 1; k++){
-      if(mystrcmp(Strings[k], Strings[k+1])>0){
-        swap(&Strings[k], &Strings[k+1]);
+  for(j = 1; j <= NUM; j++){
+    for(k = 0; k <= NUM - j; k++){
+      // int l = k +1;
+      // if(mystrcmp(*(Strings+k),*(Strings+l))>0){
+      //   //swap(&Strings[k], &Strings[k+1]);
+      //   char *temp = *(Strings+k);
+      //   *(Strings+k) = *(Strings+l);
+      //   *(Strings+l) = temp;
+      // }
+      if(mystrcmp(Strings[j], Strings[j+1]) > 0){
+        temp(Strings[j], Strings[j+1]);
       }
     }
   }
