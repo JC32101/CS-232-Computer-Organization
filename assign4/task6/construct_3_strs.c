@@ -12,14 +12,20 @@ node_t * construct_3_strs() {
   x = (node_t *)malloc(sizeof(node_t *)*3);
   y = (node_t *)malloc(sizeof(node_t *)*3);
   z = (node_t *)malloc(sizeof(node_t *)*3);
-  
-  // x->value = (char*)malloc(sizeof(char *)*5);
-  // y->value = (char*)malloc(sizeof(char *)*5);
-  // z->value = (char*)malloc(sizeof(char *)*5);
 
-  x->value = "CS232";
-  y->value = "is";
-  z->value = "awesome";
+  x->value = (char*)malloc(sizeof(char *)*6);
+  y->value = (char*)malloc(sizeof(char *)*3);
+  z->value = (char*)malloc(sizeof(char *)*8);
+
+  for(int i = 0; i < 6; i++){
+    x->value[i] = "CS232\0"[i];   //"CS232\0"[i] --- display array
+  }
+  for(int i = 0; i < 3; i++){
+    y->value[i] = "is\0"[i];   
+  }
+  for(int i = 0; i < 8; i++){
+    z->value[i] = "awesome\0"[i];   
+  }
 
   x->next = y;
   y->next = z;
@@ -48,6 +54,9 @@ int dump_all(node_t * x) {
     	printf("failed");
     	return -1;
     } else {
+        free(x->value);
+        free(y->value);
+        free(z->value);
         free(x);
         free(y);
         free(z);
