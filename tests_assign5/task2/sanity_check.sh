@@ -21,7 +21,7 @@ done
 
 for expected_file in $expected; do
     for file in *; do
-	if [ $file == $expected_file ]; then
+	if [ $file == $expected ]; then
 	    break;
 	fi
     done
@@ -32,13 +32,6 @@ for expected_file in $expected; do
     fi
 done
 
-count=`grep -wc "[m|c]alloc" construct_3_strs.c`
-if [ $count -lt 6 ]; then
-    echo -e "${RED}*****only used 3 mallocs? did you misuse 3 constant strs for task6?********${NC}"
-    echo -e "${YELLOW}***********failed sanity test***********************${NC}"
-    exit 0
-fi
-    
 if [ $abort == "1" ]; then
     echo -e "${RED}***********failed sanity test***********************${NC}"
     cd ..

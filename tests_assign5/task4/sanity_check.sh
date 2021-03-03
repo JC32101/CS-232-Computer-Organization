@@ -32,9 +32,9 @@ for expected_file in $expected; do
     fi
 done
 
-count=`grep -wc "[m|c]alloc" construct_3_strs.c`
-if [ $count -lt 6 ]; then
-    echo -e "${RED}*****only used 3 mallocs? did you misuse 3 constant strs for task6?********${NC}"
+count=`grep -wc "[m|c]alloc" construct_3_structs.c`
+if [ $count -gt 3 ]; then
+    echo -e "${RED}***** used more than 3 mallocs? only 3 mallocs are needed********${NC}"
     echo -e "${YELLOW}***********failed sanity test***********************${NC}"
     exit 0
 fi
