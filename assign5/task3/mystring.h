@@ -1,6 +1,8 @@
 #ifndef MYSTRING_H_CS232
 #define MYSTRING_H_CS232
 #include <sys/types.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct mystring_t mystring_t;
 

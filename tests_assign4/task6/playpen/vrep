@@ -1,0 +1,5 @@
+==2848== Memcheck, a memory error detector
+==2848== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2848== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2848== Command: ./construct_3_strs
+==2848== 

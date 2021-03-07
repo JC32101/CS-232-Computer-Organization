@@ -42,7 +42,7 @@ int main()
       }
     }
   }
-  
+   
   int l;
   for(l = 0; l < NUM; l++){
     printf("%s\n", Strings[l]);

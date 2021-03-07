@@ -36,9 +36,12 @@ int main(int argc, char **argv) {
 	printf("b = %c\n", mystring_get(s, 12));
 	printf("z = %c\n", mystring_get(s, 15));
 	printf("! = %c\n", mystring_get(s, 25));
-        printf("  = %c\n", mystring_get(s, 23));
-        printf("  = %c\n", mystring_get(s, 1));
-        printf("s = %c\n", mystring_get(s, 500));
+  printf("  = %c\n", mystring_get(s, 23));
+  printf("  = %c\n", mystring_get(s, 1));
+  printf("s = %c\n", mystring_get(s, 500));
+
+  // printf("Testing get data: %s\n", mystring_get_data(s));
+
 	if(mystring_get_len(s) == 501) {
 		printf("getlen returns 501, success!\n");
 	} else {
@@ -50,8 +53,12 @@ int main(int argc, char **argv) {
 	s = mystring_new();
 	mystring_cat(s, "hello ");
 	mystring_cat(s, "world");
-	printf("hello world = %s\n",mystring_get_data(s));
-        mystring_delete(s);
+	// printf("hello world = %s\n",mystring_get_data(s));
+  //       mystring_delete(s);
+  for(int i = 0; i < mystring_get_len(s); i++){
+    printf("%c", mystring_get(s, i));
+  }
+  printf("\n");
 
 	printf("Test complete.\n");
 	
