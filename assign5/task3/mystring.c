@@ -108,11 +108,19 @@ int mystring_get_len(mystring_t *s) {
 
 char* mystring_get_data(mystring_t *s) {
 	/* YOUR CODE HERE*/
+  // char *str = (char*)malloc(sizeof(s)+1);
+  // int i;
+
+  // for(i = 0; i < s->size; i++){
+  //   str[i] = s->data[i];
+  // }
+
 	return s->data;
 }
 
 void mystring_cat(mystring_t *s, char *s2) {
 	/* YOUR CODE HERE*/
+<<<<<<< HEAD
   char * temp = s->data;
   int i;
   s->data = (char *) malloc(sizeof(char) * sizeof(s2) + 1);
@@ -145,6 +153,29 @@ void mystring_cat(mystring_t *s, char *s2) {
 //    t++;
 //  }
 //  s->size = s->size+j;
+=======
+  // char * temp = s->data;
+  // int i;
+  // s->data = (char *) malloc(sizeof(char) * sizeof(s2) + 1);
+  
+  // for(i = 0; i < s->size; i++){
+  //   s->data[i] = temp[i];
+  // }
+
+  // for(i = s->size; i < sizeof(s2) + 1; i++){
+  //   mystring_set(s, i, s2[i]);
+  // }
+
+  // free(temp);
+
+  int size = sizeof(s2), i;
+  // char * temp = s->data;
+  // s->data = (char *) malloc(sizeof(char) * sizeof(s2) + 1);
+  for(i = 0; i < size-2; i++){
+    s->data[i] = s2[i];
+    printf("%c", s->data[i]);
+  }
+>>>>>>> 1ff43bebbdcd977007b02c4062aa8ff808b276d6
 }
 
 /* Set a value in the mystring. If the extra memory allocation fails, call
@@ -167,4 +198,67 @@ void mystring_set(mystring_t *s, size_t loc, char value) {
     s->size = loc + 1;
   }
 	return;
+}
+
+
+int main(int argc, char **argv) {
+	mystring_t *s;
+	
+	printf("Calling mystring_new()\n");
+	s = mystring_new();
+	
+	printf("Calling mystring_delete()\n");
+	mystring_delete(s);
+	
+	printf("mystring_new() again\n");
+	s = mystring_new();
+
+	printf("These should all return space (mystring_get()): ");
+	printf("%c ", mystring_get(s, 0));
+	printf("%c ", mystring_get(s, 1));
+	printf("%c\n", mystring_get(s, 2));
+
+	printf("Doing a bunch of mystring_set()s\n");
+	mystring_set(s, 0, 'h');
+	mystring_set(s, 11, 'a');
+	mystring_set(s, 15, 'z');
+	mystring_set(s, 24, 'm');
+    	mystring_set(s, 500, 's');
+	mystring_set(s, 12, 'b');
+	mystring_set(s, 25, '!');
+
+	printf("These should be equal:\n");
+	printf("h = %c\n", mystring_get(s, 0));
+	printf("a = %c\n", mystring_get(s, 11));
+	printf("m = %c\n", mystring_get(s, 24));
+	printf("b = %c\n", mystring_get(s, 12));
+	printf("z = %c\n", mystring_get(s, 15));
+	printf("! = %c\n", mystring_get(s, 25));
+  printf("  = %c\n", mystring_get(s, 23));
+  printf("  = %c\n", mystring_get(s, 1));
+  printf("s = %c\n", mystring_get(s, 500));
+
+  // printf("Testing get data: %s\n", mystring_get_data(s));
+
+	if(mystring_get_len(s) == 501) {
+		printf("getlen returns 501, success!\n");
+	} else {
+
+		printf("getlen does not return 501. Test failed!\n");
+	}
+	mystring_delete(s);
+
+	s = mystring_new();
+	mystring_cat(s, "hello ");
+	mystring_cat(s, "world");
+	// printf("hello world = %s\n",mystring_get_data(s));
+  //       mystring_delete(s);
+  // for(int i = 0; i < mystring_get_len(s); i++){
+  //   printf("%c", mystring_get(s, i));
+  // }
+  printf("\n");
+
+	printf("Test complete.\n");
+	
+	return 0;
 }
