@@ -1,0 +1,1 @@
+The sum at start = 582 is 0,which is also shown in gdb in the picture. According to the code of the method, the sum is stated as 0 instead of the actual sum from 0 tp 582 because in recursion, the sum is still ongoing and not yet returned.
