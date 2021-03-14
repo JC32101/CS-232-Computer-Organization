@@ -25,6 +25,7 @@ static void load_frame(frame_t *f, char *path){
 	f->content = (char*)realloc(f->content, len * sizeof(char));
 	strcpy(f->content,line);
 	f->content[read] = '\0';
+  free(line);
 	fclose(fp);
 	f->rep_counter = (int)f->content[0];
   return;

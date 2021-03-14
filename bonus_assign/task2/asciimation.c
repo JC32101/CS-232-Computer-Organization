@@ -68,7 +68,7 @@ void asciimation_delete(asciimation_t * ascm){
 void asciimation_play(asciimation_t * ascm){
   for(int i=0; i < ascm->frames->size; ++i) {
 		printf("%s",vector_get_frame_content(ascm->frames, i));
-	  sleep(ascm->frames_per_second * vector_get_frame_rep_counter(ascm->frames, i));
+	  sleep(ascm->frames_per_second * (vector_get_frame_rep_counter(ascm->frames, i)/15));
     system("clear");
   }
 }
@@ -76,7 +76,7 @@ void asciimation_play(asciimation_t * ascm){
 void asciimation_reverse(asciimation_t * ascm){
   for(int i = ascm->frames->size; i > 0; --i) {
 		printf("%s",vector_get_frame_content(ascm->frames, i-1));
-		sleep(ascm->frames_per_second * vector_get_frame_rep_counter(ascm->frames, i-1));
+		sleep(ascm->frames_per_second * (vector_get_frame_rep_counter(ascm->frames, i-1)/15));
     system("clear");
 	}
 }
