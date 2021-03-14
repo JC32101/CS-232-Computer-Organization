@@ -53,8 +53,11 @@ asciimation_t * asciimation_new(char * path, int fps){
 			sprintf(asciipath+len, "%d", i+1);
 		struct frame_t * frame = frame_new(asciipath,i);
 		vector_set(ascm->frames, i, frame);
+    
 	}
   
+  ascm->frames_per_second = fps;
+
 	return ascm;
 }
 
@@ -67,6 +70,7 @@ void asciimation_play(asciimation_t * ascm){
   for(int i=0; i < ascm->frames->size; ++i) {
 		printf("%s",vector_get_frame_content(ascm->frames, i));
 	  sleep(ascm->frames_per_second * vector_get_frame_rep_counter(ascm->frames, i));
+    system("clear");
   }
 }
 
@@ -74,5 +78,6 @@ void asciimation_reverse(asciimation_t * ascm){
   for(int i = ascm->frames->size; i > 0; --i) {
 		printf("%s",vector_get_frame_content(ascm->frames, i-1));
 		sleep(ascm->frames_per_second * vector_get_frame_rep_counter(ascm->frames, i-1));
+    system("clear");
 	}
 }

@@ -24,7 +24,7 @@ static void load_frame(frame_t *f, char *path){
   read = getdelim(&line, &len, EOF, fp);
 	f->content = (char*)realloc(f->content, len * sizeof(char));
 	strcpy(f->content,line);
-	f->content[read-1] = '\0';
+	f->content[read] = '\0';
 	fclose(fp);
 	f->rep_counter = (int)f->content[0];
   return;
@@ -57,4 +57,3 @@ int frame_get_rep_counter(frame_t * f){
 int frame_get_id(frame_t *f){
 	return f-> id;
 }
-
