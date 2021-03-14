@@ -27,7 +27,7 @@ static void load_frame(frame_t *f, char *path){
 	f->content[read] = '\0';
   free(line);
 	fclose(fp);
-	f->rep_counter = (int)f->content[0];
+	f->rep_counter = f->content[0]-'0';
   return;
 }
 
