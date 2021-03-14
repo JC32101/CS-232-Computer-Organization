@@ -13,7 +13,7 @@ node_t * setup() {
     //Dereference each pointer to access the .next field in its pointee, 
     //and use pointer assignment to set the .next field to point to the appropriate Node. 
     
-   return head;
+    return head;
 }
 
 void teardown(/*what parameter?*/) {

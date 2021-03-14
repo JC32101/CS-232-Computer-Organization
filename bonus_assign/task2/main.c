@@ -70,5 +70,4 @@ int main() {
 		printf("[press any key to continue]\n");
 		system("@cls||clear");
 	} while (1);
-	
 }
