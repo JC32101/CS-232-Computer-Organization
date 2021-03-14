@@ -53,7 +53,6 @@ asciimation_t * asciimation_new(char * path, int fps){
 			sprintf(asciipath+len, "%d", i+1);
 		struct frame_t * frame = frame_new(asciipath,i);
 		vector_set(ascm->frames, i, frame);
-    
 	}
   
   ascm->frames_per_second = fps;
