@@ -54,6 +54,7 @@ asciimation_t * asciimation_new(char * path, int fps){
 		struct frame_t * frame = frame_new(asciipath,i);
 		vector_set(ascm->frames, i, frame);
 	}
+  
 	return ascm;
 }
 

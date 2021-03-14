@@ -22,7 +22,6 @@ int main(int argc, char **argv) {
 
 int msb(int x) {
 	if (x == 0) return -1;    
-  if (x < 0 || x > INT_MAX) return 31;       
 	int w, ep, mask;
   w=32; // Number of bits that might contain most significant 1
 	ep=0; // Rightmost bit that might contain most significant 1
@@ -36,7 +35,10 @@ int msb(int x) {
     if((mask & x) == 0){
       ep -= w;
     }
-		printf("M= "); print_binary(mask); printf(" hw=%d ep=%d\n",w,ep);
+
+		printf("M= ");
+    print_binary(mask);
+    printf(" hw=%d ep=%d\n",w,ep);
 	}
 	return ep;
 }
