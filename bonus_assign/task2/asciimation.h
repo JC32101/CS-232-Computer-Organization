@@ -8,6 +8,7 @@
 #define ASCIIMATION_H_232
 #include "vector.h"
 #include "frame.h"
+
 typedef struct asciimation_t {
 	vector_t * frames; //maintains a vector of frame pointers. each points to a frame
 	int frames_per_second;//how fast do you play the asciimation?	

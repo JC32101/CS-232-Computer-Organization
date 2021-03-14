@@ -15,6 +15,7 @@ typedef struct frame_t {
 
 struct frame_t * frame_new(char * pathnam, int id);
 void frame_delete(struct frame_t * f);
+void frame_set(struct frame_t *f, int loc, char *s);
 char* frame_get_content (struct frame_t *f);
 int frame_get_rep_counter(struct frame_t * f);
 int frame_get_id(struct frame_t *f);
