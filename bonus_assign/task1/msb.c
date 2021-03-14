@@ -37,7 +37,11 @@ int msb(int x) {
       ep -= w;
     }
 
+<<<<<<< HEAD
 		// printf("M= "); print_binary(mask); printf(" w=%d ep=%d\n",w,ep);
+=======
+		printf("M= "); print_binary(mask); printf(" w=%d ep=%d\n",w,ep);
+>>>>>>> e289e9ebf48b394a156bae23b0c0635c9b8c0fce
 	}
 	return ep;
 }
