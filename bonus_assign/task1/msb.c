@@ -35,10 +35,8 @@ int msb(int x) {
     if((mask & x) == 0){
       ep -= w;
     }
-
-		printf("M= ");
-    print_binary(mask);
-    printf(" hw=%d ep=%d\n",w,ep);
+    
+		printf("M= "); print_binary(mask); printf(" hw=%d ep=%d\n",w,ep);
 	}
 	return ep;
 }
