@@ -36,16 +36,7 @@ int msb(int x) {
     if((mask & x) == 0){
       ep -= w;
     }
-<<<<<<< HEAD
-		// printf("M= "); print_binary(mask); printf(" w=%d ep=%d\n",w,ep);
-=======
-
-<<<<<<< HEAD
-		// printf("M= "); print_binary(mask); printf(" w=%d ep=%d\n",w,ep);
-=======
-		printf("M= "); print_binary(mask); printf(" w=%d ep=%d\n",w,ep);
->>>>>>> e289e9ebf48b394a156bae23b0c0635c9b8c0fce
->>>>>>> 3fe579637f551e794b2aa98e86fe4767ea598e03
+		printf("M= "); print_binary(mask); printf(" hw=%d ep=%d\n",w,ep);
 	}
 	return ep;
 }
