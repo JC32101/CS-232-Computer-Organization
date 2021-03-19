@@ -14,9 +14,9 @@ node_t * setup() {
     //and use pointer assignment to set the .next field to point to the appropriate Node. 
     node_t *node1, *node2, *node3;
 
-    node1 = (node_t *)malloc(sizeof(node_t *));
-    node2 = (node_t *)malloc(sizeof(node_t *));
-    node3 = (node_t *)malloc(sizeof(node_t *));
+    node1 = (node_t *)malloc(sizeof(node_t *)*3);
+    node2 = (node_t *)malloc(sizeof(node_t *)*3);
+    node3 = (node_t *)malloc(sizeof(node_t *)*3);
 
     for(int i = 0; i < 6; i++){
         node1->str[i] = "hello\0"[i];
@@ -30,20 +30,23 @@ node_t * setup() {
         node3->str[i] = "prof\0"[i];   
     }
 
-    head->next = node1;
+    //head->next = node1;
     node1->next = node2;
     node2->next = node3;
     node3->next = NULL;
+    head = node1;
 
     return head;
 }
 
-void teardown(node_t* h) {
+void teardown(node_t* head) {
     //TODO: free all dynamic memory you requested.
     //Please complete the prototype of teardown.
     //You are not allowed to use globals
-    while(head->next != NULL){
-      free(head);
+    free(head->next->next->next);
+    free(head->next->next);
+    free(head->next);
+    free(head);
 }
 
 void dump_all(node_t*);

@@ -1,7 +1,7 @@
 UNAME_S := $(shell uname -s)
 CC=gcc
 LD=gcc
-CFLAGS= -g -Wall -std=c11
+CFLAGS=-ggdb -Wall -std=c99
 LDFLAGS=
 
 ifeq ($(UNAME_S), Darwin)
@@ -12,24 +12,24 @@ ifeq ($(UNAME_S), Linux)
     MEMCHECK=valgrind --tool=memcheck --leak-check=full --track-origins=yes
 endif
 
-MYSTRING_OBJS=mystring.o mystring-test.o
-MYSTRING_PROG=mystring-test
+VECTOR_OBJS=vector.o main.o asciimation.o frame.o 
+VECTOR_PROG=asciimation
 
-BINARIES=$(MYSTRING_PROG)
+BINARIES=$(VECTOR_PROG)
 
 all: $(BINARIES)
 
-$(MYSTRING_PROG): $(MYSTRING_OBJS)
-	$(LD) -o $(MYSTRING_PROG) $(MYSTRING_OBJS) $(LDFLAGS)
+$(VECTOR_PROG): $(VECTOR_OBJS)
+	$(LD) -o $(VECTOR_PROG) $(VECTOR_OBJS) $(LDFLAGS)
 
 .c.o:
 	$(CC) -c -pedantic $(CFLAGS) $<
 
-mystring-memcheck: $(MYSTRING_PROG)
-	$(MEMCHECK) ./$(MYSTRING_PROG)
+vector-memcheck: $(VECTOR_PROG)
+	$(MEMCHECK) ./$(VECTOR_PROG)
 
 clean: 
 	-rm -rf core *.o *~ "#"*"#" Makefile.bak $(BINARIES) *.dSYM
         
-mystring.c: mystring.h
-mystring-test.c: mystring.h
+vector.c: vector.h
+main.c: vector.h

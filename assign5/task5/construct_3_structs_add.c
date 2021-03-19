@@ -60,7 +60,7 @@ int main (int argc, char ** argv) {
     teardown(/*what argument?*/);
     return 0;
 }
-
+/*what argument?*/
 void dump_all(node_t * head) {
     printf("head -> ");
     node_t * cur = head;

@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
 	mystring_cat(s, "hello ");
 	mystring_cat(s, "world");
 	printf("hello world = %s\n",mystring_get_data(s));
-        mystring_delete(s);
+  mystring_delete(s);
 
 	printf("Test complete.\n");
 	
