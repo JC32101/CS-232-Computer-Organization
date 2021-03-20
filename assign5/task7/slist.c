@@ -9,7 +9,7 @@
  * @return pointer to the list
  */
 struct slist *slist_create(){
-  struct slidt *head = (struct slist*)malloc(sizeof(struct slist));
+  struct slist *head = (struct slist*)malloc(sizeof(struct slist));
   head->front = NULL;
   head->back = NULL;
   return head;
@@ -84,9 +84,9 @@ void slist_destroy(struct slist *l){
   struct snode *cur = l->front;
   struct snode *temp;
   while(cur != NULL){
-    temp = node->next;
-    snode_destroy(node);
-    node = temp;
+    temp = cur->next;
+    snode_destroy(cur);
+    cur = temp;
   }
   free(l);
 }
