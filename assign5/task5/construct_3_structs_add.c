@@ -9,9 +9,9 @@ node_t * setup() {
    
     node_t *node1, *node2, *node3;
 
-    node1 = (node_t *)malloc(sizeof(node_t *));
-    node2 = (node_t *)malloc(sizeof(node_t *));
-    node3 = (node_t *)malloc(sizeof(node_t *));
+    node1 = (node_t *)malloc(sizeof(node_t));
+    node2 = (node_t *)malloc(sizeof(node_t));
+    node3 = (node_t *)malloc(sizeof(node_t));
 
     for(int i = 0; i < 6; i++){
         node1->str[i] = "hello\0"[i];
@@ -38,11 +38,13 @@ void teardown(node_t* head) {
     //TODO: free all dynamic memory you requested.
     //Please complete the prototype of teardown.
     //You are not allowed to use globals
-    free(head->next->next->next->next);
-    free(head->next->next->next);
-    free(head->next->next);
-    free(head->next);
-    free(head);
+    node_t* finger;
+
+    while(head != NULL){
+    finger = head;
+    head = head->next;
+    free(finger);
+    }
 }
 
 void add(node_t ** head, char * str, int length){
@@ -56,7 +58,6 @@ void add(node_t ** head, char * str, int length){
         temp->str[i] = "hi\0"[i];
       }
     }
-      //temp = temp1;
       temp->next = *head;
       *head = temp;
 }
