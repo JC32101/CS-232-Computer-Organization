@@ -14,9 +14,9 @@ node_t * setup() {
     //and use pointer assignment to set the .next field to point to the appropriate Node. 
     node_t *node1, *node2, *node3;
 
-    node1 = (node_t *)malloc(sizeof(node_t *)*3);
-    node2 = (node_t *)malloc(sizeof(node_t *)*3);
-    node3 = (node_t *)malloc(sizeof(node_t *)*3);
+    node1 = (node_t *)malloc(sizeof(node_t));
+    node2 = (node_t *)malloc(sizeof(node_t));
+    node3 = (node_t *)malloc(sizeof(node_t));
 
     for(int i = 0; i < 6; i++){
         node1->str[i] = "hello\0"[i];

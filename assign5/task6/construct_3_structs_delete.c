@@ -6,11 +6,9 @@ typedef struct snode node_t;
 node_t * setup() {
     //TODO:copy setup func from task2
     node_t * head ; 
-    node_t *node1, *node2, *node3;
-
-    node1 = (node_t *)malloc(sizeof(node_t *));
-    node2 = (node_t *)malloc(sizeof(node_t *));
-    node3 = (node_t *)malloc(sizeof(node_t *));
+    node_t *node1 = (node_t *)malloc(sizeof(node_t));
+    node_t *node2 = (node_t *)malloc(sizeof(node_t));
+    node_t *node3 = (node_t *)malloc(sizeof(node_t));
 
     strcpy(node1->str, "hello");
     node1->length = 5;
@@ -29,6 +27,7 @@ node_t * setup() {
 
 void teardown(node_t *head) {
   node_t* finger;
+
   while(head != NULL){
     finger = head;
     head = head->next;
