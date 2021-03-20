@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "snode.h"
+#include <string.h>
 
 // global variables (data segment)
 
@@ -29,8 +30,7 @@ int main(int argc, char *argv[]) {
   while (p != NULL) {
     // Complete this line to print the current node's string and   
     // length (you can use strlen!)
-    int l = strlen(s);
-    printf("str: %s - length: %d\n", s->data, l) // TODO
+    printf("str: %s - length: %ld\n", p->str, strlen(p->str)); // TODO
 
     // TODO: add code to move p to point to next node
     p = p->next;

@@ -7,7 +7,7 @@
 struct snode {
   //TODO: change str to dynamic allcoation
   //char str[101];
-  char *data;
+  char *str;
   //int length;
   struct snode *next;
 };
@@ -18,3 +18,4 @@ struct snode {
 struct snode *snode_create(char *s); 
 void snode_destroy(struct snode * s) ;
  
+#endif /* _slist_H_ */
