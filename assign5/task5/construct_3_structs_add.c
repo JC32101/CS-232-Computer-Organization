@@ -34,7 +34,7 @@ node_t * setup() {
     return head;
 }
 
-void teardown(node_t* head) {
+void teardown(node_t *head) {
     //TODO: free all dynamic memory you requested.
     //Please complete the prototype of teardown.
     //You are not allowed to use globals
@@ -49,17 +49,25 @@ void teardown(node_t* head) {
 
 void add(node_t ** head, char * str, int length){
     //TODO: implement add to add a new node to front, pointed by head
+    node_t* temp = (node_t*)malloc(sizeof(node_t));
+    node_t* cur = *head;
+    strcpy(temp->str, str);
+    temp->length = length;
+    temp->next = cur;
+    *head = temp;
+    /*
     node_t *temp;
   
     for(int i = 0; i <= length; i++){
-      temp = (node_t *)malloc(sizeof(node_t *));
+      //temp = (node_t *)malloc(sizeof(node_t));
 
-      for(int i = 0; i < 2; i++){
+      for(int i = 0; i < 3; i++){
         temp->str[i] = "hi\0"[i];
       }
     }
       temp->next = *head;
       *head = temp;
+      */
 }
 
 void dump_all(node_t*);
