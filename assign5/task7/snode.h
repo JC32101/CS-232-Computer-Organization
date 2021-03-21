@@ -6,9 +6,7 @@
 #include <string.h>
 struct snode {
   //TODO: change str to dynamic allcoation
-  //char str[101];
   char *str;
-  //int length;
   struct snode *next;
 };
 
