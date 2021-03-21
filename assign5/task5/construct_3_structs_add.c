@@ -13,17 +13,12 @@ node_t * setup() {
     node2 = (node_t *)malloc(sizeof(node_t));
     node3 = (node_t *)malloc(sizeof(node_t));
 
-    for(int i = 0; i < 6; i++){
-        node1->str[i] = "hello\0"[i];
-    }
-
-    for(int i = 0; i < 6; i++){
-        node2->str[i] = "there\0"[i];   
-    }
-
-    for(int i = 0; i < 5; i++){
-        node3->str[i] = "prof\0"[i];   
-    }
+    strcpy(node1->str, "hello");
+    node1->length = 5;
+    strcpy(node2->str, "there");
+    node2->length = 5;
+    strcpy(node3->str, "prof");
+    node3->length = 4;
 
     //head->next = node1;
     node1->next = node2;
@@ -55,19 +50,6 @@ void add(node_t ** head, char * str, int length){
     temp->length = length;
     temp->next = cur;
     *head = temp;
-    /*
-    node_t *temp;
-  
-    for(int i = 0; i <= length; i++){
-      //temp = (node_t *)malloc(sizeof(node_t));
-
-      for(int i = 0; i < 3; i++){
-        temp->str[i] = "hi\0"[i];
-      }
-    }
-      temp->next = *head;
-      *head = temp;
-      */
 }
 
 void dump_all(node_t*);
