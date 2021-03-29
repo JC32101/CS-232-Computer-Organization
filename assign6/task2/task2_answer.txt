@@ -1,0 +1,11 @@
+First we prepare the inputs
+  -In this case we turn NX, f and no ON and leave zy, zy, and ny OFF and pass x=9 and y=5
+
+Next:
+  -X will pass through the Select16 where it would remain 9, then it would pass through the Inv16 where it would be outputing 0xfff6. Meanwhile Y is pass through Select16 which would output 5 because is OFF. 
+
+Then:
+ The inputs pass through the addition operator because f is ON. Therefore it computes the sum of x+y resulting on 0xfffb.
+
+Finally:
+  Because no is ON it makes the selector compute the Inv16 operator, which converts the last result (0xfffb) into 4 (the finall result)
