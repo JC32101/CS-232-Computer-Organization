@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
     phase_4(input);
     phase_defused();
     printf("So you got that one.  Try this one.\n");
-
+    
     /* Round and 'round in memory we go, where we stop, the bomb blows! */
     input = read_line();
     phase_5(input);
@@ -110,6 +110,6 @@ int main(int argc, char *argv[])
 
     /* Wow, they got it!  But isn't something... missing?  Perhaps
      * something they overlooked?  Mua ha ha ha ha! */
-
+    
     return 0;
 }
