@@ -1,6 +1,8 @@
 1.What instruction is “int a, b, c, d;” converted to? 
+“int a, b, c, d;” was converted
 
 2.Does “int a, b, c, d;” shrink or grow the stack? How many bytes are allocated on stack for a, b, c, and d? Explain them using instruction from question 1.
+
 
 3.What instruction is “b=2;” converted to? How is the address of variable b formed in the instruction?
 
