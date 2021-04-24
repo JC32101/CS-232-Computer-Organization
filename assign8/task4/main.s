@@ -7,15 +7,15 @@ password:
 .LC1:
   .byte 0x25,0x73,0x0
 main:
-  pushl %ebp
-  movl %esp,%ebp
-  subl $12,%esp
-  pushl %ebx
-  pushl $.LC0
-  call printf
+  pushl %ebp 
+  movl %esp,%ebp 
+  subl $12,%esp 
+  pushl %ebx 
+  pushl $.LC0 
+  call printf 
   leal -8(%ebp),%eax
-  pushl %eax
-  pushl $.LC1
+  pushl %eax 
+  pushl $.LC1 
   call scanf
   movl $0,-12(%ebp)
   leal 12(%esp),%esp
