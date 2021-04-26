@@ -1,5 +1,5 @@
 1.By searching the function name “strcmp” in the assembly text, what instruction calls strcmp?
-The instruction is call strcmp
+The instruction is "call strcmp".
 
 2.What does leal -8(%ebp),%eax right before call strcmp do?
 It computes the address of the operand and stores it in the second one. Calculates the address -8(%ebp) and stores that address in register %eax.

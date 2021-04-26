@@ -2,7 +2,7 @@
 The instruction for "a>6" is cmpl $6,-4(%ebp).
 
 2. What happens if we delete the “jmp” instruction?
-If we delete the "jmp" instruction, then the while loop wouldn't be able to be called on a second and multiple times.
+If we delete the "jmp" instruction, then the while loop wouldn't be able to loop itself again when the condition is true.
 
 3. Can you rewrite the condition with “jg” in place of “jle” without changing semantic of the program? Why or why not?
-Although we can rewrite the condition with "jg" in place of "jle", but that will definitely change the semantic of the program. The conditions which I see that can change "jle" into "jg" is "7 > a" and "a < 7." These conditions will result us in a false statement, which is the opposite of what we had oiginally. Thus, the semantic of the program changes.
+Although we can rewrite the condition with "jg" in place of "jle", but that will definitely change the semantic of the program. The conditions which I see that can change "jle" into "jg" is "7 > a" and "a < 7." These conditions will result us in a false statement, which is also different from the condition we originally had. Thus, we cannot rewrite thr condition with jg in place of jle without changing the semantic of the program.

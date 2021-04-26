@@ -6,24 +6,19 @@ int main() {
     scanf("%s", input);
 
     for(i = 0; i < 8; i++){
-      if((input[i] && password[i]) == 0){
-        input[i];
-        input[i] += 32;
-      }
-      else if(strcmp(input, password)==0){
-          retun 0;
-      }
-      else{
-        return -1;
+      if(65 <= input[i] && 90 >= input[i]){
+          input[i] += 32;
       }
     }
-
-    /*
+    
     if(strcmp(input, password)==0) {
         return 0;
     } else {
         return -1;
     }
-    */
 
 }
+
+
+
+

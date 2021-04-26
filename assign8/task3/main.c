@@ -5,7 +5,7 @@ int main() {
       b = 15;
     }
     
-    while(c <= 14){
+    while(c < 15){
       a+=c;
       c++;
     }
