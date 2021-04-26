@@ -10,10 +10,12 @@ int main() {
           input[i] += 32;
       }
     }
-    
+    }
+
     if(strcmp(input, password)==0) {
         return 0;
-    } else {
+    } 
+    else {
         return -1;
     }
 
